@@ -1,4 +1,28 @@
 {
   "name": "application-name",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "description": "A nodejs client for pigeon(rpc service)",
+  "main": "index.js",
+  "keywords": [
+    "rpc",
+    "client"
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "author": {
+    "name": "xiaotian.li",
+    "email": "xiaotian.li@dianping.com"
+  },
+  "contributors": {
+    "name": "xiaotian.li",
+    "email": "xiaotian.li@dianping.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+
+  },
+  "dependencies": {
+
+  }
 }
