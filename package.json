@@ -22,5 +22,10 @@
   "devDependencies": {
   },
   "dependencies": {
+    "winston": "~0.8.3",
+    "config": "~1.9.0",
+    "properties-parser": "~0.2.3",
+    "request": "~2.51.0",
+    "rootpath": "~0.1.2"
   }
 }
