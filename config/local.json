@@ -1,3 +1,5 @@
 {
-  "zkserver": "dev.lion.dp:2181"
+  "zkserver": "dev.lion.dp:2181",
+  "protocol": "http",
+  "loadBalance": "random"
 }
