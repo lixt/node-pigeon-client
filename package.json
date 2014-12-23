@@ -32,5 +32,6 @@
     "rootpath": "~0.1.2",
     "node-zookeeper-client": "~0.2.1",
     "escape-string-regexp": "~1.0.2",
+    "hessian.js": "~1.0.1"
   }
 }

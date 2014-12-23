@@ -1,5 +1,12 @@
 {
   "zkserver": "dev.lion.dp:2181",
+  "timeout": 1000,
+  "callType": "callback",
   "protocol": "http",
+  "serialize": "hessian",
+  "cluster": "failfast",
+  "timeoutRetry": false,
+  "retries": 5,
   "loadBalance": "random"
+
 }
