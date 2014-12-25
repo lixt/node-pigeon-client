@@ -7,6 +7,5 @@
   "cluster": "failfast",
   "timeoutRetry": false,
   "retries": 5,
-  "loadBalance": "random"
-
+  "loadBalance": "roundRobin"
 }
