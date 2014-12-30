@@ -51,9 +51,80 @@ pigeon.getService(url, function(err, service) {
 });
 ```
 
+## Documentation
+
+#### getService(url, [options], callback)
+
+Retrieve the service of the given url.
+
+**Arguments**
+
+* url `String` - The service url.
+
+* options `Object` - An object to set the service retrive options. Currently
+  available options are:
+
+  * `zkserver`: Comma seperated `host:port` pairs, each represents a Zookeeper
+  server. e.g.
+
+  ```javascript
+  '127.0.0.1:2181, 127.0.0.1:2182, 127.0.0.1:2183'
+  ```
+
+  * `timeout` Remote service method call timeout in milliseconds.
+  * `protocol` Protocol of remote service method call.
+  * `serialize` Serailization of network transmission.
+  * `timeoutRetry` Whether to retry when timeout.
+  * `retries` The number of retry attempts for timeout.
+  * `loadBalance` Type of remote service server load balance.
+
+  Default options:
+
+  ```javascript
+  {
+    zkserver    : '127.0.0.1:2181' // Can also set in '/data/webapps/appenv'.
+    timeout     : 1000,
+    protocol    : 'http'           // http.
+    serialize   : 'hessian'        // hessian.
+    timeoutRetry: true             // true/false
+    retries     : 1
+    loadBalance : 'autoaware'      // autoaware/roundRobin/random
+  }
+  ```
+
+* callback(err, service) `Function` - The callback function. The `service` can
+  be regarded as an object containing all the service methods that can be
+  called.
+
+#### java.int(value)
+
+Return the wrapped object represents Java `int`.
+
+**Arguments**
+
+* value `Number` - JS `Number` to be wrapped to Java `int`.
+
+#### java.long(value)
+
+Return the wrapped object represents Java `long`.
+
+**Arguments**
+
+* value `Number` - JS `Number` to be wrapped to Java `long`.
+
+#### java.double(value)
+
+Return the wrapped object represents Java `double`.
+
+* value `Number` - JS `Number` to be wrapped to Java `double`.
+
+#### java.boolean(value)
+
+Return the wrapped object represents Java `boolean`.
+
+* value `Boolean` - JS `Boolean` to be wrapped to Java `boolean`.
 
 
 
 
-## Configuration
-Before you can use the Node.js Pigeon client, you should
+
