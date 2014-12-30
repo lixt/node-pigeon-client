@@ -30,6 +30,7 @@ public class EchoService {
 ```
 
 Call the remote service "EchoService":
+
 ```javascript
 var pigeon = require('node-pigeon-client');
 
