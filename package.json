@@ -23,18 +23,14 @@
   },
   "dependencies": {
     "winston": "~0.8.3",
-    "config": "~1.9.0",
     "underscore": "~1.7.0",
     "async": "~0.9.0",
-    "shimmer": "~1.0.0",
     "properties-parser": "~0.2.3",
     "request": "~2.51.0",
     "rootpath": "~0.1.2",
     "node-zookeeper-client": "~0.2.1",
-    "escape-string-regexp": "~1.0.2",
     "hessian.js": "~1.0.1",
     "harmony-reflect": "1.1.1",
-    "harmonize": "1.33.7",
-    "keep-alive-agent": "~0.0.1"
+    "harmonize": "1.33.7"
   }
 }
