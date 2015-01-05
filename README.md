@@ -33,16 +33,17 @@ Call the remote service "EchoService":
 
 ```javascript
 var pigeon = require('node-pigeon-client');
+var java   = require('node-pigeon-client').java;
 
 var url = 'EchoService'; // Remote service url.
 pigeon.getService(url, function(err, service) {
   if (err) {
-    return console.log('Get remote service error: %j.', err);
+    return console.log('Get remote service error: %s.', err);
   }
 
-  service.hello(pigeon.java.int(123456), function(err, result) {
+  service.hello(java.int(123456), function(err, result) {
     if (err) {
-      return console.log('Call remote service method error: %j.', err);
+      return console.log('Call remote service method error: %s.', err);
     }
 
     // Output 123456 to the console.
@@ -96,33 +97,164 @@ Retrieve the service of the given url.
   be regarded as an object containing all the service methods that can be
   called.
 
-#### java.int(value)
+#### java.null()
 
-Return the wrapped object represents Java `int`.
+Return a wrapped object represents Java primitive `null`.
 
-**Arguments**
+#### java.int(int)
 
-* value `Number` - JS `Number` to be wrapped to Java `int`.
-
-#### java.long(value)
-
-Return the wrapped object represents Java `long`.
+Return a wrapped object represents Java primitive `int`.
 
 **Arguments**
 
-* value `Number` - JS `Number` to be wrapped to Java `long`.
+* int `Number` - JS `Number` to be wrapped to Java primitive `int`.
 
-#### java.double(value)
+#### java.long(long)
 
-Return the wrapped object represents Java `double`.
+Return a wrapped object represents Java primitive `long`.
 
-* value `Number` - JS `Number` to be wrapped to Java `double`.
+**Arguments**
 
-#### java.boolean(value)
+* long `Number` - JS `Number` to be wrapped to Java primitive `long`.
 
-Return the wrapped object represents Java `boolean`.
+#### java.double(double)
 
-* value `Boolean` - JS `Boolean` to be wrapped to Java `boolean`.
+Return a wrapped object represents Java primitive `double`.
+
+**Arguments**
+
+* double `Number` - JS `Number` to be wrapped to Java primitive `double`.
+
+#### java.boolean(boolean)
+
+Return a wrapped object represents Java primitive `boolean`.
+
+**Arguments**
+
+* boolean `Boolean` - JS `Boolean` to be wrapped to Java primitive `boolean`.
+
+#### java.Integer(integer)
+
+Return a wrapped object represents Java `java.lang.Integer`.
+
+**Arguments**
+
+* integer `Number` - JS `Number` to be wrapped to Java `java.lang.Integer`.
+
+#### java.Long(long)
+
+Return a wrapped object represents Java `java.lang.Long`.
+
+**Arguments**
+
+* long `Number` - JS `Number` to be wrapped to Java `java.lang.Long`.
+
+#### java.Double(double)
+
+Return a wrapped object represents Java `java.lang.Double`.
+
+**Arguments**
+
+* double `Number` - JS `Number` to be wrapped to Java `java.lang.Double`.
+
+#### java.Boolean(boolean)
+
+Return the wrapped object represents Java `java.lang.Boolean`.
+
+**Arguments**
+
+* boolean `Boolean` - JS `Boolean` to be wrapped to Java `java.lang.Boolean`.
+
+#### java.String(string)
+
+Return a wrapped object represents Java `java.lang.String`.
+
+**Arguments**
+
+* string `String` - JS `String` to be wrapped to Java `java.lang.String`.
+
+#### java.Object(object)
+
+Return a wrapped object represents Java `java.lang.Object`.
+
+**Arguments**
+
+* object `Object` - JS `Object` to be wrapped to Java `java.lang.Object`.
+
+#### java.Date(date)
+
+Return a wrapped object represents Java `java.util.Date`.
+
+**Arguments**
+
+* date `Date` - JS `Date` to be wrapped to Java `java.util.Date`.
+
+### Recursive types
+
+#### java.List.BASIC_TYPES(list)
+
+Return a wrapped object represents Java `java.util.List<BASIC_TYPES>`.
+
+**Arguments**
+
+* list `Array` - JS `Array` to be wrapped to Java `java.util.List<BASIC_TYPES>`.
+
+**Example**
+
+```javascript
+java.List.int([1, 2, 3]);
+java.List.long([1, 2, 3]);
+java.List.double([1.0, 2.0]);
+java.List.boolean([true, false]);
+java.List.Integer([1, 2, 3]);
+java.List.Long([1, 2, 3]);
+java.List.Double([1.0, 2.0]);
+java.List.Boolean([true, false]);
+java.List.String(['hello', 'world']);
+java.List.Object([{ a: 1 }, { b: 2 }]);
+java.List.Date([new Date(1997, 1, 1)]);
+```
+
+#### java.Map.BASIC_TYPES(map)
+
+Return a wrapped object represents Java `java.util.Map<String, BASIC_TYPES>`.
+
+**Arguments**
+
+* map `Object` - JS `Object` to be wrapped to Java `java.util.Map<String, BASIC_TYPES>`.
+
+#### java.Class(classname, classvalue)
+
+Return a wrapped object represents Java user-defined class.
+
+**Arguments**
+
+* classname `String` - Name of the user-defined class.
+* classvalue `Object` - JS `Object` to be wrapped to Java user-defined class.
+
+**Example**
+
+```java
+package com.xxx.demo;
+public class Car implements java.io.serializable {
+  private String name;
+  private int money;
+  private ArrayList<Integer> wheelSize = new ArrayList<Integer>();
+
+  public Car() {}
+}
+```
+
+```javascript
+var car = java.Class('com.xxx.demo.Car', {
+  name: java.String('car-name'),
+  money: java.int(1000),
+  wheelSize: java.List.Integer([2, 4, 6, 8]);
+});
+```
+
+
+
 
 
 
