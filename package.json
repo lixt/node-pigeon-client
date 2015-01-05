@@ -1,7 +1,7 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
-  "description": "A nodejs client for pigeon(rpc service)",
+  "name": "node-pigeon-client",
+  "version": "0.0.4",
+  "description": "A pure Javascript Pigeon client for Node.js.",
   "main": "index.js",
   "keywords": [
     "rpc",
@@ -10,17 +10,13 @@
   "engines": {
     "node": "<= 0.10.33"
   },
-  "author": {
-    "name": "xiaotian.li",
-    "email": "xiaotian.li@dianping.com"
-  },
+  "author": "xiaotian.li <lixiaotian07@gmail.com>",
   "contributors": {
     "name": "xiaotian.li",
-    "email": "xiaotian.li@dianping.com"
+    "email": "lixiaotian07@gmail.com"
   },
   "license": "MIT",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "winston": "~0.8.3",
     "underscore": "~1.7.0",
@@ -34,5 +30,11 @@
     "byte": "~1.0.0",
     "debug": "~1.0.4",
     "is-type-of": "~0.3.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
