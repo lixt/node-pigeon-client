@@ -1,6 +1,6 @@
 {
   "name": "node-pigeon-client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A pure Javascript Pigeon client for Node.js.",
   "main": "index.js",
   "keywords": [
@@ -36,5 +36,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lixt/node-pigeon-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lixt/node-pigeon-client/issues"
+  },
+  "homepage": "https://github.com/lixt/node-pigeon-client"
 }
