@@ -97,163 +97,246 @@ Retrieve the service of the given url.
   be regarded as an object containing all the service methods that can be
   called.
 
+## Java Types Supported
+* null
+* int
+* long
+* double
+* boolean
+* java.lang.Integer
+* java.lang.Long
+* java.lang.Double
+* java.lang.Boolean
+* java.lang.String
+* java.lang.Object
+* java.util.List
+* java.util.Set
+* java.util.Date
+* array
+* user-defined
+
 #### java.null()
-
-Return a wrapped object represents Java primitive `null`.
-
-#### java.int(int)
-
-Return a wrapped object represents Java primitive `int`.
-
-**Arguments**
-
-* int `Number` - JS `Number` to be wrapped to Java primitive `int`.
-
-#### java.long(long)
-
-Return a wrapped object represents Java primitive `long`.
-
-**Arguments**
-
-* long `Number` - JS `Number` to be wrapped to Java primitive `long`.
-
-#### java.double(double)
-
-Return a wrapped object represents Java primitive `double`.
-
-**Arguments**
-
-* double `Number` - JS `Number` to be wrapped to Java primitive `double`.
-
-#### java.boolean(boolean)
-
-Return a wrapped object represents Java primitive `boolean`.
-
-**Arguments**
-
-* boolean `Boolean` - JS `Boolean` to be wrapped to Java primitive `boolean`.
-
-#### java.Integer(integer)
-
-Return a wrapped object represents Java `java.lang.Integer`.
-
-**Arguments**
-
-* integer `Number` - JS `Number` to be wrapped to Java `java.lang.Integer`.
-
-#### java.Long(long)
-
-Return a wrapped object represents Java `java.lang.Long`.
-
-**Arguments**
-
-* long `Number` - JS `Number` to be wrapped to Java `java.lang.Long`.
-
-#### java.Double(double)
-
-Return a wrapped object represents Java `java.lang.Double`.
-
-**Arguments**
-
-* double `Number` - JS `Number` to be wrapped to Java `java.lang.Double`.
-
-#### java.Boolean(boolean)
-
-Return the wrapped object represents Java `java.lang.Boolean`.
-
-**Arguments**
-
-* boolean `Boolean` - JS `Boolean` to be wrapped to Java `java.lang.Boolean`.
-
-#### java.String(string)
-
-Return a wrapped object represents Java `java.lang.String`.
-
-**Arguments**
-
-* string `String` - JS `String` to be wrapped to Java `java.lang.String`.
-
-#### java.Object(object)
-
-Return a wrapped object represents Java `java.lang.Object`.
-
-**Arguments**
-
-* object `Object` - JS `Object` to be wrapped to Java `java.lang.Object`.
-
-#### java.Date(date)
-
-Return a wrapped object represents Java `java.util.Date`.
-
-**Arguments**
-
-* date `Date` - JS `Date` to be wrapped to Java `java.util.Date`.
-
-### Recursive types
-
-#### java.List.BASIC_TYPES(list)
-
-Return a wrapped object represents Java `java.util.List<BASIC_TYPES>`.
-
-**Arguments**
-
-* list `Array` - JS `Array` to be wrapped to Java `java.util.List<BASIC_TYPES>`.
-
-**Example**
-
-```javascript
-java.List.int([1, 2, 3]);
-java.List.long([1, 2, 3]);
-java.List.double([1.0, 2.0]);
-java.List.boolean([true, false]);
-java.List.Integer([1, 2, 3]);
-java.List.Long([1, 2, 3]);
-java.List.Double([1.0, 2.0]);
-java.List.Boolean([true, false]);
-java.List.String(['hello', 'world']);
-java.List.Object([{ a: 1 }, { b: 2 }]);
-java.List.Date([new Date(1997, 1, 1)]);
-```
-
-#### java.Map.BASIC_TYPES(map)
-
-Return a wrapped object represents Java `java.util.Map<String, BASIC_TYPES>`.
-
-**Arguments**
-
-* map `Object` - JS `Object` to be wrapped to Java `java.util.Map<String, BASIC_TYPES>`.
-
-#### java.Class(classname, classvalue)
-
-Return a wrapped object represents Java user-defined class.
-
-**Arguments**
-
-* classname `String` - Name of the user-defined class.
-* classvalue `Object` - JS `Object` to be wrapped to Java user-defined class.
 
 **Example**
 
 ```java
-package com.xxx.demo;
-public class Car implements java.io.serializable {
+Object a = null;
+```
+
+```javascript
+var a = java.null()
+```
+
+#### java.int(jsNumber)
+
+**Example**
+
+```java
+int a = 123;
+```
+
+```javascript
+var a = java.int(123);
+```
+
+#### java.long(jsNumber)
+
+**Example**
+
+```java
+long a = 123;
+```
+
+```javascript
+var a = java.long(123);
+```
+
+#### java.double(jsNumber)
+
+**Example**
+
+```java
+double a = 1.23;
+```
+
+```javascript
+var a = java.double(1.23);
+```
+
+#### java.boolean(jsBoolean)
+
+**Example**
+
+```java
+boolean a = true;
+```
+
+```javascript
+var a = java.boolean(true);
+```
+
+#### java.Integer(jsNumber)
+
+**Example**
+
+```java
+java.lang.Integer a = new java.lang.Integer(123);
+```
+
+```javascript
+var a = java.Integer(123);
+```
+
+#### java.Long(jsNumber)
+
+**Example**
+
+```java
+java.lang.Long a = new java.lang.Long(123);
+```
+
+```javascript
+var a = java.Long(123);
+```
+
+#### java.Double(jsNumber)
+
+**Example**
+
+```java
+java.lang.Double a = new java.lang.Double(1.23);
+```
+
+```javascript
+var a = java.Double(1.23);
+```
+
+#### java.Boolean(jsBoolean)
+
+**Example**
+
+```java
+java.lang.Boolean a = new java.lang.Boolean(true);
+```
+
+```javascript
+var a = java.Boolean(true);
+```
+
+#### java.String(jsString)
+
+**Example**
+
+```java
+java.lang.String a = new java.lang.String('123');
+```
+
+```javascript
+var a = java.String('123');
+```
+
+#### java.Object(jsObject)
+
+**Example**
+
+```java
+public Class Car {
   private String name;
   private int money;
   private ArrayList<Integer> wheelSize = new ArrayList<Integer>();
 
-  public Car() {}
+  public Car(name, money, wheelSize) {
+    this.name = name;
+    this.money = money;
+    this.wheelSize = wheelSize;
+  }
 }
+
+java.lang.Object a = new Car("Benz", 123, new ArrayList([1, 2, 3, 4]));
 ```
 
 ```javascript
-var car = java.Class('com.xxx.demo.Car', {
-  name: java.String('car-name'),
-  money: java.int(1000),
-  wheelSize: java.List.Integer([2, 4, 6, 8]);
+var a = java.Object({
+  name     : java.String('Benz'),
+  money    : java.int(123),
+  wheelSize: java.List.Integer([1, 2, 3, 4])
 });
 ```
 
+#### java.List.Generics(jsArray)
 
+`Generics` represents the following types:
+* int
+* long
+* double
+* boolean
+* java.lang.Integer
+* java.lang.Long
+* java.lang.Double
+* java.lang.Boolean
+* java.lang.String
+* java.lang.Object
+* java.util.Date
+* user-defined
+
+**Example**
+
+```java
+List<String> a = new ArrayList(["a", "b", "c"]);
+```
+
+```javascript
+var a = java.List.String(['a', 'b', 'c']);
+```
+
+#### java.Set.Generics(jsArray)
+
+See java.List.Generics(jsArray).
+
+#### java.array.Generics(jsArray)
+
+See java.List.Generics(jsArray).
+
+#### java.Date(jsDate)
+
+**Example**
+
+```java
+java.util.Date a = new java.util.Date();
+```
+
+```javascript
+var a = java.Date(new Date());
+```
+
+#### java.Class(classname, jsObject)
+
+**Example**
+
+```java
+package packagename;
+public Class Car {
+  private String name;
+  private int money;
+  private ArrayList<Integer> wheelSize = new ArrayList<Integer>();
+
+  public Car(name, money, wheelSize) {
+    this.name = name;
+    this.money = money;
+    this.wheelSize = wheelSize;
+  }
+}
+
+packagename.Car a = new packagename.Car("Benz", 123, new ArrayList([1, 2, 3, 4]));
+```
+
+```javascript
+var a = java.Class('packagename.Car', {
+  name     : java.String('Benz'),
+  money    : java.int(123),
+  wheelSize: java.List.Integer([1, 2, 3, 4])
+})
+```
 
 
 
