@@ -16,7 +16,10 @@
     "email": "lixiaotian07@gmail.com"
   },
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "chai": "^1.10.0"
+  },
   "dependencies": {
     "winston": "~0.8.3",
     "underscore": "~1.7.0",
